@@ -2,7 +2,9 @@
 
 ## Tool used
 IDE                 - Visual studio code
+
 Framework           - Dot NET core
+
 Testing framework   - Nunit
 
 ## How this project was setup
