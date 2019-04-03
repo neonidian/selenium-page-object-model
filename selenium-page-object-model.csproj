@@ -21,5 +21,6 @@
     </CreateItem>
     <Copy SourceFiles="src/SeleniumConfig.ini" DestinationFiles="$(OutputPath)SeleniumConfig.ini" />
     <Copy SourceFiles="src/resources/drivers/geckodriver" DestinationFiles="$(OutputPath)drivers/geckodriver" />
+    <Copy SourceFiles="src/resources/drivers/geckodriver.exe" DestinationFiles="$(OutputPath)drivers/geckodriver.exe" />
   </Target>
 </Project>
