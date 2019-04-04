@@ -8,7 +8,6 @@ namespace Framework {
     public class SeleniumActions {
 
         IWebDriver iWebDriver;
-        IWebElement iWebElement;
         WebDriverWait webDriverWait;
         Actions actions;
 

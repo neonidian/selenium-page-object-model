@@ -19,6 +19,7 @@ namespace Framework {
                     break;
                 }
             }
+            iWebDriver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(15);
             return iWebDriver;
         }
 
