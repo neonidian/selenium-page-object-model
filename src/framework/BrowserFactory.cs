@@ -10,7 +10,7 @@ namespace Framework {
             BrowserOptions browserOptions = new BrowserOptions();
             switch(browser) {
                 case "firefox": {                    
-                    iWebDriver = new FirefoxDriver(new BrowserOptions().FirefoxDriverServiceSet(), new FirefoxOptions());
+                    iWebDriver = new FirefoxDriver(browserOptions.FirefoxDriverServiceGet(), browserOptions.FirefoxOptionsGet());
                     break;
                 }
                 default: {
@@ -19,6 +19,7 @@ namespace Framework {
                     break;
                 }
             }
+            iWebDriver.Manage().Window.Maximize(); 
             return iWebDriver;
         }
 
