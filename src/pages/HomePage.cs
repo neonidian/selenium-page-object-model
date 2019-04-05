@@ -25,9 +25,6 @@ namespace Pages {
         }
 
         internal HomePage GoToApplicationsPageByDynamicAuthorizationSuiteHeaderLinkInHeader() {
-            // Two clicks required on 'Dynamic Authorization Suite' header link
-            // 1st click opens up a list of products in the same page
-            // 2nd click navigates to Products & Services page
             seleniumActions.Click(DynamicAuthorizationHeaderLnk)
                 .Click(SubMenuOptionsInDynamicAuthorizationHeaderMenu.Replace("Applications"));
             return this;

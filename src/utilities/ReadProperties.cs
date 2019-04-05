@@ -13,11 +13,8 @@ namespace Utilities {
             var configurationBuilder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddIniFile("SeleniumConfig.ini")
-                .Build();
-        
-
+                .Build();    
             BrowserName = configurationBuilder.GetSection("Browser:BrowserName").Value;
-
         }
     }
 }
