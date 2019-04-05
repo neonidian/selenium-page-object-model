@@ -14,7 +14,7 @@ using System;
             FirefoxOptions firefoxOptions = new FirefoxOptions();
             firefoxOptions.AcceptInsecureCertificates = true;
             firefoxOptions.LogLevel = FirefoxDriverLogLevel.Fatal;
-            firefoxOptions.PageLoadStrategy =  PageLoadStrategy.Normal;
+            //firefoxOptions.PageLoadStrategy =  PageLoadStrategy.Normal;
             return firefoxOptions;
         }
     }

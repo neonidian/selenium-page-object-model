@@ -5,7 +5,7 @@ using OpenQA.Selenium;
 
     public class LocatorObject {
         String objectValue;
-        String objectDescription;
+        public String locatorDescription;
         public By locatorValue;
         public const String ID = "ID";
         public const String CSS = "CSS";
@@ -19,7 +19,7 @@ using OpenQA.Selenium;
         public LocatorObject(String locator, String LocatorDescription, String locatorType) {
             this.objectValue = locator;
             this.locatorValue = GetLocatorObject(objectValue, locatorType);
-            this.objectDescription = LocatorDescription;
+            this.locatorDescription = LocatorDescription;
             strLocatorType = locatorType;
         }
 
@@ -52,17 +52,17 @@ using OpenQA.Selenium;
 
         public LocatorObject Replace(String replacementText){
             return new LocatorObject
-                    (this.objectValue.Replace("[*]", replacementText), this.objectDescription, this.strLocatorType);
+                    (this.objectValue.Replace("[*]", replacementText), this.locatorDescription, this.strLocatorType);
         }
 
         public LocatorObject Replace(String textToBeReplaced, String replacementText){
             return new LocatorObject(this.objectValue.Replace(textToBeReplaced, replacementText),
-                    this.objectDescription, this.strLocatorType);
+                    this.locatorDescription, this.strLocatorType);
         }
 
         public LocatorObject Replace(int replacementNumber){
             return new LocatorObject(this.objectValue.Replace("[*]", Convert.ToString(replacementNumber)),
-                    this.objectDescription, this.strLocatorType);
+                    this.locatorDescription, this.strLocatorType);
         }
     }
 }

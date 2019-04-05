@@ -11,9 +11,9 @@ namespace UITests {
             pages
                 .GetHomePage()
                 .OpenHomePageURL("https://www.axiomatics.com")
-                .GoToProductsAndServicesPageByDynamicAuthorizationSuiteHeaderLinkInHeader()
+                .GoToApplicationsPageByDynamicAuthorizationSuiteHeaderLinkInHeader()
                 .GetProductsPage()
-                .VerifyProductsPageDisplayed();
+                .VerifyApplicationsProductPageDisplayed();
         }
     }
 }
