@@ -4,8 +4,8 @@ namespace Framework {
     using OpenQA.Selenium.Firefox;
 
     public class BrowserFactory{
-        private const string FIREFOX = "firefox";
-        private IWebDriver iWebDriver;
+        const string FIREFOX = "firefox";
+        IWebDriver iWebDriver;
 
         public IWebDriver IWebDriver { get => iWebDriver; set => iWebDriver = value; }
 

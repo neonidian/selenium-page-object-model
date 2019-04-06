@@ -9,7 +9,7 @@ namespace UITests {
     public class TestBase {
         BrowserFactory browserFactory;
         IWebDriver iWebDriver;
-        private PageBase pages;
+        PageBase pages;
 
         public IWebDriver IWebDriver { get => iWebDriver; set => iWebDriver = value; }
         public BrowserFactory BrowserFactory { get => browserFactory; set => browserFactory = value; }

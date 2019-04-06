@@ -6,7 +6,7 @@ using OpenQA.Selenium;
     public class LocatorObject {
         readonly String objectValue;
         public String locatorDescription;
-        private By locatorValue;
+        By locatorValue;
         public const String ID = "ID";
         public const String CSS = "CSS";
         public const String XPATH = "XPATH";
