@@ -1,19 +1,15 @@
-namespace UITests {
-    using System;
-    using System.Diagnostics;
+namespace UITests
+{
     using NUnit.Framework;
-    
-   [TestFixture]
+
+    [TestFixture]
     public class HomePageTests : TestBase {
-        
+
         [TestCase]
-        public void VerifyNavigationToProductsPage() {
-            pages
+        public void VerifyNavigationToProductsPage() => Pages
                 .GetHomePage()
                 .OpenHomePageURL("https://www.axiomatics.com")
-                .GoToApplicationsPageByDynamicAuthorizationSuiteHeaderLinkInHeader()
-                .GetProductsPage()
+                .GoToApplicationsPageByDynamicAuthorizationSuiteHeaderLinkInHeader                .GetProductsPage()
                 .VerifyApplicationsProductPageDisplayed();
-        }
     }
 }

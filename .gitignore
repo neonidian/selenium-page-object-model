@@ -1,3 +1,7 @@
 .vscode/
 bin/
 obj/
+
+# Visual studio
+.vs/
+*.sln

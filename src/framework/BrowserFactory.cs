@@ -4,13 +4,16 @@ namespace Framework {
     using OpenQA.Selenium.Firefox;
 
     public class BrowserFactory{
+        private const string FIREFOX = "firefox";
         IWebDriver iWebDriver;
+
+        public IWebDriver IWebDriver { get => iWebDriver; set => iWebDriver = value; }
+
         public IWebDriver InitializeBrowser(string browser)
         {
-            BrowserOptions browserOptions = new BrowserOptions();
-            switch(browser) {
-                case "firefox": {                    
-                    iWebDriver = new FirefoxDriver(browserOptions.FirefoxDriverServiceGet(), browserOptions.FirefoxOptionsGet());
+            switch (browser) {
+                case FIREFOX: {
+                    IWebDriver = new FirefoxDriver(new BrowserOptions().FirefoxDriverServiceGet, new BrowserOptions().FirefoxOptionsGet);
                     break;
                 }
                 default: {
@@ -19,13 +22,11 @@ namespace Framework {
                     break;
                 }
             }
-            iWebDriver.Manage().Window.Maximize(); 
-            return iWebDriver;
+            IWebDriver.Manage().Window.Maximize(); 
+            return IWebDriver;
         }
 
-        public void CloseBrowser(IWebDriver iWebDriver){
-            iWebDriver.Quit();
-        }
+        public void CloseBrowser(IWebDriver iWebDriver) => iWebDriver.Quit();
     }
     
 }

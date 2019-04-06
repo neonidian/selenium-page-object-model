@@ -14,7 +14,7 @@
   </ItemGroup>
   <Target Name="CopyAppConfig" AfterTargets="Build" DependsOnTargets="Build">
     <CreateItem Include="$(OutputPath)$(AssemblyName).dll.config">
-        <Output TaskParameter="Include" ItemName="FilesToCopy"/>
+        <Output TaskParameter="Include" ItemName="FilesToCopy" />
     </CreateItem>
     <Copy SourceFiles="src/SeleniumConfig.ini" DestinationFiles="$(OutputPath)SeleniumConfig.ini" />
     <Copy SourceFiles="src/resources/drivers/geckodriver" DestinationFiles="$(OutputPath)drivers/geckodriver" />

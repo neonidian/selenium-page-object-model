@@ -9,19 +9,23 @@ namespace UITests {
     public class TestBase {
         BrowserFactory browserFactory;
         IWebDriver iWebDriver;
-        public PageBase pages;
+        private PageBase pages;
 
-       [SetUp]
+        public IWebDriver IWebDriver { get => iWebDriver; set => iWebDriver = value; }
+        public BrowserFactory BrowserFactory { get => browserFactory; set => browserFactory = value; }
+        public PageBase Pages { get => pages; set => pages = value; }
+
+        [SetUp]
         public void InializeTestSetup() {
             String browser = new ReadProperties().BrowserName;
-            this.browserFactory = new BrowserFactory();
-            this.iWebDriver = browserFactory.InitializeBrowser(browser);
-            this.pages = new PageBase(iWebDriver); 
+            this.BrowserFactory = new BrowserFactory();
+            this.IWebDriver = BrowserFactory.InitializeBrowser(browser);
+            this.Pages = new PageBase(IWebDriver); 
         }
 
         [TearDown]
         public void CloseBrowser() {
-            browserFactory.CloseBrowser(iWebDriver);
+            BrowserFactory.CloseBrowser(IWebDriver);
         }
     }
 }

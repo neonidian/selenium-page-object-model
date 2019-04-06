@@ -1,5 +1,4 @@
 namespace Pages {
-    using System;
     using Framework;
     using OpenQA.Selenium;
 
