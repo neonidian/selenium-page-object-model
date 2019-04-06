@@ -9,15 +9,23 @@ namespace Pages {
             this.iWebDriver = iWebDriver;            
             seleniumActions = new SeleniumActions(iWebDriver);
         }
-        
-        public HomePage GetHomePage(){
-            HomePage homePage = new HomePage(iWebDriver);
-            return homePage;
+
+        public HomePage HomePage
+        {
+            get
+            {
+                HomePage homePage = new HomePage(iWebDriver);
+                return homePage;
+            }
         }
 
-        public ProductsPage GetProductsPage(){
-            ProductsPage productsPage = new ProductsPage(iWebDriver);
-            return productsPage;
+        public ProductsPage ProductsPage
+        {
+            get
+            {
+                ProductsPage productsPage = new ProductsPage(iWebDriver);
+                return productsPage;
+            }
         }
     }
 }

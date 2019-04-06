@@ -7,9 +7,10 @@ namespace UITests
 
         [TestCase]
         public void VerifyNavigationToProductsPage() => Pages
-                .GetHomePage()
-                .OpenHomePageURL("https://www.axiomatics.com")
-                .GoToApplicationsPageByDynamicAuthorizationSuiteHeaderLinkInHeader                .GetProductsPage()
-                .VerifyApplicationsProductPageDisplayed();
+                .HomePage                
+                    .OpenHomePageURL("https://www.axiomatics.com")
+                    .GoToApplicationsPageByDynamicAuthorizationSuiteHeaderLinkInHeader()                
+                .ProductsPage                
+                    .VerifyApplicationsProductPageDisplayed();
     }
 }

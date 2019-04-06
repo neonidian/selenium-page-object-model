@@ -23,14 +23,10 @@ namespace Pages {
             return this;
         }
 
-        internal HomePage GoToApplicationsPageByDynamicAuthorizationSuiteHeaderLinkInHeader
-        {
-            get
-            {
-                seleniumActions.Click(DynamicAuthorizationHeaderLnk)
-                    .Click(SubMenuOptionsInDynamicAuthorizationHeaderMenu.Replace("Applications"));
-                return this;
-            }
+        internal HomePage GoToApplicationsPageByDynamicAuthorizationSuiteHeaderLinkInHeader() {
+            seleniumActions.Click(DynamicAuthorizationHeaderLnk)
+                .Click(SubMenuOptionsInDynamicAuthorizationHeaderMenu.Replace("Applications"));
+            return this;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Framework {
         {
             switch (browser) {
                 case FIREFOX: {
-                    IWebDriver = new FirefoxDriver(new BrowserOptions().FirefoxDriverServiceGet, new BrowserOptions().FirefoxOptionsGet);
+                    IWebDriver = new FirefoxDriver(new BrowserOptions().FirefoxDriverService, new BrowserOptions().FirefoxOptions);
                     break;
                 }
                 default: {
