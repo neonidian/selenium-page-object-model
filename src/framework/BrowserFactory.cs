@@ -5,7 +5,7 @@ namespace Framework {
 
     public class BrowserFactory{
         private const string FIREFOX = "firefox";
-        IWebDriver iWebDriver;
+        private IWebDriver iWebDriver;
 
         public IWebDriver IWebDriver { get => iWebDriver; set => iWebDriver = value; }
 
@@ -18,7 +18,6 @@ namespace Framework {
                 }
                 default: {
                     Console.WriteLine("Browser value specified - '" + browser + "' does not match the supported browsers in this project");
-                    Environment.ExitCode = -1;
                     break;
                 }
             }
