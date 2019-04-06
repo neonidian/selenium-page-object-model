@@ -5,10 +5,10 @@ namespace Utilities {
     public class ReadProperties {
         public String BrowserName;
         public ReadProperties() {
-            readAppConfigProperties();
+            ReadAppConfigProperties();
         }
 
-        private void readAppConfigProperties() {
+        private void ReadAppConfigProperties() {
             string getCurrentPath = Directory.GetCurrentDirectory();
             var configurationBuilder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
