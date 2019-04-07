@@ -12,7 +12,7 @@ Run individual tests with Nunit plugin which can be installed in the IDE.
 
 ## What this test does
 
-1. This test opens up firefox browser and loads a website - https://www.axiomatics.com (Access control solutions comapany)
+1. This test opens up firefox browser and loads a website - https://www.axiomatics.com (Access control solutions company)
 
 2. Opens up a one of the header menu to list a subset of the menu
 
