@@ -7,7 +7,7 @@ namespace Framework
             get
             {
                 FirefoxDriverService firefoxDriverService =
-                    FirefoxDriverService.CreateDefaultService(@"drivers/");
+                    FirefoxDriverService.CreateDefaultService(@".");
                 return firefoxDriverService;
             }
         }

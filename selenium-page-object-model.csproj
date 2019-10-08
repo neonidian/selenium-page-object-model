@@ -11,13 +11,12 @@
     <PackageReference Include="NUnit3TestAdapter" Version="3.12.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+    <PackageReference Include="Selenium.WebDriver.GeckoDriver" Version="0.25.0" />
   </ItemGroup>
   <Target Name="CopyAppConfig" AfterTargets="Build" DependsOnTargets="Build">
     <CreateItem Include="$(OutputPath)$(AssemblyName).dll.config">
         <Output TaskParameter="Include" ItemName="FilesToCopy" />
     </CreateItem>
     <Copy SourceFiles="src/SeleniumConfig.ini" DestinationFiles="$(OutputPath)SeleniumConfig.ini" />
-    <Copy SourceFiles="src/resources/drivers/geckodriver" DestinationFiles="$(OutputPath)drivers/geckodriver" />
-    <Copy SourceFiles="src/resources/drivers/geckodriver.exe" DestinationFiles="$(OutputPath)drivers/geckodriver.exe" />
   </Target>
 </Project>

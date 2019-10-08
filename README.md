@@ -2,7 +2,7 @@
 
 ## Running tests
 
-Install dotnet core
+Install dotnet core (See project file for version of .NET core)
 
 In the commandline execute `dotnet test` to run all the tests. The default browser is set as firefox in [SeleniumConfig.ini](src/SeleniumConfig.ini).
 This can be tweaked to run other browsers.
@@ -29,6 +29,4 @@ Testing framework   - Nunit
 ## How this project was setup
 
 1. Nunit template using ` dotnet new nunit`
-2. Install selenium - `dotnet add package Selenium.WebDriver --version 3.141.0`
-3. The resource files like [browser drivers](src/resources/drivers) and [SeleniumConfig.ini](src/SeleniumConfig.ini)
-was configured to be copied to bin/ in .csproj file since they are required while running the tests.
+2. Package reference for external libraries and the browser drivers are set up in the project file
