@@ -2,12 +2,14 @@
 
 ## Running tests
 
-Install dotnet core (See project file for version of .NET core)
+1. Install dotnet core (See project file for version of .NET core)
 
-In the commandline execute `dotnet test` to run all the tests. The default browser is set as firefox in [SeleniumConfig.ini](src/SeleniumConfig.ini).
+2. In the commandline execute `dotnet restore` to download and update dependencies required for this project.
+
+3. In the commandline execute `dotnet test` to run all the tests. The default browser is set as firefox in [SeleniumConfig.ini](src/SeleniumConfig.ini).
 This can be tweaked to run other browsers.
 
-All the tests are present in [uiTests](src/uiTests) folder.
+4. All the tests are present in [uiTests](src/uiTests) folder.
 Run individual tests with Nunit plugin which can be installed in the IDE.
 
 ## What this test does
@@ -20,13 +22,14 @@ Run individual tests with Nunit plugin which can be installed in the IDE.
 
 ## Tool used
 
-IDE                 - Visual studio code
+* IDE                 - Visual studio code
 
-Framework           - Dot NET core
+* Framework           - Dot NET core
 
-Testing framework   - Nunit
+* Testing framework   - Nunit
 
 ## How this project was setup
 
 1. Nunit template using ` dotnet new nunit`
+
 2. Package reference for external libraries and the browser drivers are set up in the project file
