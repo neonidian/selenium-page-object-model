@@ -16,9 +16,10 @@ namespace Framework
         {
             get
             {
-                FirefoxOptions firefoxOptions = new FirefoxOptions();
-                firefoxOptions.AcceptInsecureCertificates = true;
-                firefoxOptions.LogLevel = FirefoxDriverLogLevel.Fatal;
+                FirefoxOptions firefoxOptions = new FirefoxOptions
+                {
+                    AcceptInsecureCertificates = true, LogLevel = FirefoxDriverLogLevel.Fatal
+                };
                 return firefoxOptions;
             }
         }

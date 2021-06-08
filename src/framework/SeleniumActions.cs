@@ -85,7 +85,7 @@ namespace Framework {
                 webDriverWait.Until(iWebDriver => iWebDriver.FindElement(locatorObject.LocatorValue).Displayed);
             }
             catch(WebDriverException webDriverException){
-                Fail("Timed out waiting for page object - " + locatorObject.locatorDescription + ". Locator value - " + locatorObject.LocatorValue
+                Fail("Timed out waiting for page object - " + locatorObject.LocatorDescription + ". Locator value - " + locatorObject.LocatorValue
                   + "\n" + webDriverException.Message);
             }
             return this;

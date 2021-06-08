@@ -1,31 +1,30 @@
-namespace Pages {
-    using System;
-    using OpenQA.Selenium;
-    using Framework;
+using Framework;
+using OpenQA.Selenium;
 
+namespace Pages {
     public class HomePage : PageBase {
 
-        const String PAGE_NAME = "Home Page > ";
-        readonly LocatorObject SearchMagnifyingGlassInput = new LocatorObject("input.button", PAGE_NAME + "Magnifying glass", LocatorObject.CSS);
-        readonly LocatorObject SearchTextBox = new LocatorObject("inputBox.show", PAGE_NAME + "Magnifying glass > Search text box", LocatorObject.CSS);
-        readonly LocatorObject DynamicAuthorizationHeaderLnk = new LocatorObject("a.dropdown-toggle.disabled[title=\"Dynamic Authorization Suite\"]", PAGE_NAME + "Header > Dynamic Authorization link", LocatorObject.CSS);
-        readonly LocatorObject SubMenuOptionsInDynamicAuthorizationHeaderMenu = new LocatorObject("#menu-main-menu .dropdown-menu a[title=\"[*]\"]", PAGE_NAME + "Header > Dynamic Authorization Header menu > Sub menu dropdown", LocatorObject.CSS);
+        private const string PageName = "Home Page > ";
+        private readonly LocatorObject _searchMagnifyingGlassInput = new LocatorObject("input.button", PageName + "Magnifying glass", LocatorObject.CSS);
+        private readonly LocatorObject _searchTextBox = new LocatorObject("inputBox.show", PageName + "Magnifying glass > Search text box", LocatorObject.CSS);
+        private readonly LocatorObject _dynamicAuthorizationHeaderLnk = new LocatorObject("a.dropdown-toggle.disabled[title=\"Dynamic Authorization Suite\"]", PageName + "Header > Dynamic Authorization link", LocatorObject.CSS);
+        private readonly LocatorObject _subMenuOptionsInDynamicAuthorizationHeaderMenu = new LocatorObject("#menu-main-menu .dropdown-menu a[title=\"[*]\"]", PageName + "Header > Dynamic Authorization Header menu > Sub menu dropdown", LocatorObject.CSS);
 
         public HomePage(IWebDriver iWebDriver) : base(iWebDriver) {}
 
-        internal HomePage OpenHomePageURL(String URL) {
-            seleniumActions.OpenURL(URL);
+        internal HomePage OpenHomePageUrl(string url) {
+            SeleniumActions.OpenURL(url);
             return this;
        }
 
         internal HomePage Search(string keywordToSearch) {
-            seleniumActions.HoverOnElementAndEnterText(SearchMagnifyingGlassInput, keywordToSearch);
+            SeleniumActions.HoverOnElementAndEnterText(_searchMagnifyingGlassInput, keywordToSearch);
             return this;
         }
 
-        internal HomePage GoToApplicationsPageByDynamicAuthorizationSuiteHeaderLinkInHeader() {
-            seleniumActions.Click(DynamicAuthorizationHeaderLnk)
-                .Click(SubMenuOptionsInDynamicAuthorizationHeaderMenu.Replace("Applications"));
+        internal HomePage GoToApplicationsPageByDynamicAuthorizationSuiteHeaderLink() {
+            SeleniumActions.Click(_dynamicAuthorizationHeaderLnk)
+                .Click(_subMenuOptionsInDynamicAuthorizationHeaderMenu.Replace("Applications"));
             return this;
         }
     }

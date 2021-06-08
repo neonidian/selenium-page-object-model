@@ -4,28 +4,27 @@ using System;
 using OpenQA.Selenium;
 
     public class LocatorObject {
-        readonly String objectValue;
-        public String locatorDescription;
-        By locatorValue;
-        public const String ID = "ID";
-        public const String CSS = "CSS";
-        public const String XPATH = "XPATH";
-        public const String LINK_TEXT = "LINKTEXT";
-        public const String PARTIAL_LINK_TEXT = "PARTIALLINKTEXT";
-        public const String CLASS = "CLASS";
-        public const String NAME = "NAME";
-        readonly String strLocatorType;
+        private readonly string _objectValue;
+        public readonly string LocatorDescription;
+        public const string ID = "ID";
+        public const string CSS = "CSS";
+        public const string XPATH = "XPATH";
+        public const string LINK_TEXT = "LINKTEXT";
+        public const string PARTIAL_LINK_TEXT = "PARTIALLINKTEXT";
+        public const string CLASS = "CLASS";
+        public const string NAME = "NAME";
+        private readonly string _strLocatorType;
 
-        public By LocatorValue { get => locatorValue; set => locatorValue = value; }
+        public By LocatorValue { get; private set; }
 
-        public LocatorObject(String locator, String LocatorDescription, String locatorType) {
-            this.objectValue = locator;
-            this.LocatorValue = GetLocatorObject(objectValue, locatorType);
-            this.locatorDescription = LocatorDescription;
-            strLocatorType = locatorType;
+        public LocatorObject(String locator, String locatorDescription, String locatorType) {
+            this._objectValue = locator;
+            this.LocatorValue = GetLocatorObject(_objectValue, locatorType);
+            this.LocatorDescription = locatorDescription;
+            _strLocatorType = locatorType;
         }
 
-        By GetLocatorObject(String locator, String locatorType) {
+        private By GetLocatorObject(String locator, String locatorType) {
             switch (locatorType.ToUpper()) {
                 case ID:
                     LocatorValue = By.Id(locator);
@@ -53,12 +52,12 @@ using OpenQA.Selenium;
         }
 
         public LocatorObject Replace(String replacementText) => new LocatorObject
-                    (this.objectValue.Replace("[*]", replacementText), this.locatorDescription, this.strLocatorType);
+                    (this._objectValue.Replace("[*]", replacementText), this.LocatorDescription, this._strLocatorType);
 
-        public LocatorObject Replace(String textToBeReplaced, String replacementText) => new LocatorObject(this.objectValue.Replace(textToBeReplaced, replacementText),
-                    this.locatorDescription, this.strLocatorType);
+        public LocatorObject Replace(String textToBeReplaced, String replacementText) => new(this._objectValue.Replace(textToBeReplaced, replacementText),
+                    this.LocatorDescription, this._strLocatorType);
 
-        public LocatorObject Replace(int replacementNumber) => new LocatorObject(this.objectValue.Replace("[*]", Convert.ToString(replacementNumber)),
-                    this.locatorDescription, this.strLocatorType);
+        public LocatorObject Replace(int replacementNumber) => new LocatorObject(this._objectValue.Replace("[*]", Convert.ToString(replacementNumber)),
+                    this.LocatorDescription, this._strLocatorType);
     }
 }

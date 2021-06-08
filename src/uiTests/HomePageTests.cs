@@ -8,8 +8,8 @@ namespace UITests
         [TestCase]
         public void VerifyNavigationToProductsPage() => Pages
                 .HomePage                
-                    .OpenHomePageURL("https://www.axiomatics.com")
-                    .GoToApplicationsPageByDynamicAuthorizationSuiteHeaderLinkInHeader()                
+                    .OpenHomePageUrl("https://www.axiomatics.com")
+                    .GoToApplicationsPageByDynamicAuthorizationSuiteHeaderLink()                
                 .ProductsPage                
                     .VerifyApplicationsProductPageDisplayed();
     }

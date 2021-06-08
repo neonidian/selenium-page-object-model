@@ -3,18 +3,18 @@ namespace Pages {
     using OpenQA.Selenium;
 
     public class PageBase {
-        IWebDriver iWebDriver;
-        protected SeleniumActions seleniumActions;
+        private readonly IWebDriver _iWebDriver;
+        protected readonly SeleniumActions SeleniumActions;
         public PageBase(IWebDriver iWebDriver){
-            this.iWebDriver = iWebDriver;            
-            seleniumActions = new SeleniumActions(iWebDriver);
+            _iWebDriver = iWebDriver;            
+            SeleniumActions = new SeleniumActions(iWebDriver);
         }
 
         public HomePage HomePage
         {
             get
             {
-                HomePage homePage = new HomePage(iWebDriver);
+                HomePage homePage = new HomePage(_iWebDriver);
                 return homePage;
             }
         }
@@ -23,7 +23,7 @@ namespace Pages {
         {
             get
             {
-                ProductsPage productsPage = new ProductsPage(iWebDriver);
+                ProductsPage productsPage = new ProductsPage(_iWebDriver);
                 return productsPage;
             }
         }

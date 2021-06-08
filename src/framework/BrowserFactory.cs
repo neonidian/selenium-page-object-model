@@ -4,15 +4,15 @@ namespace Framework {
     using OpenQA.Selenium.Firefox;
 
     public class BrowserFactory{
-        const string FIREFOX = "firefox";
-        IWebDriver iWebDriver;
+        private const string Firefox = "firefox";
+        IWebDriver _iWebDriver;
 
-        public IWebDriver IWebDriver { get => iWebDriver; set => iWebDriver = value; }
+        private IWebDriver IWebDriver { get => _iWebDriver; set => _iWebDriver = value; }
 
         public IWebDriver InitializeBrowser(string browser)
         {
             switch (browser) {
-                case FIREFOX: {
+                case Firefox: {
                     IWebDriver = new FirefoxDriver(new BrowserOptions().FirefoxDriverService, new BrowserOptions().FirefoxOptions);
                     break;
                 }
@@ -25,7 +25,6 @@ namespace Framework {
             return IWebDriver;
         }
 
-        public void CloseBrowser(IWebDriver iWebDriver) => iWebDriver.Quit();
+        public static void CloseBrowser(IWebDriver iWebDriver) => iWebDriver.Quit();
     }
-    
 }

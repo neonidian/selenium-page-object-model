@@ -7,25 +7,23 @@ namespace UITests {
     using Pages;
 
     public class TestBase {
-        BrowserFactory browserFactory;
-        IWebDriver iWebDriver;
-        PageBase pages;
+        private IWebDriver WebDriver { get; set; }
 
-        public IWebDriver IWebDriver { get => iWebDriver; set => iWebDriver = value; }
-        public BrowserFactory BrowserFactory { get => browserFactory; set => browserFactory = value; }
-        public PageBase Pages { get => pages; set => pages = value; }
+        private BrowserFactory BrowserFactory { get; set; }
+
+        protected PageBase Pages { get; private set; }
 
         [SetUp]
-        public void InializeTestSetup() {
+        public void InitializeTestSetup() {
             String browser = new ReadProperties().BrowserName;
             this.BrowserFactory = new BrowserFactory();
-            this.IWebDriver = BrowserFactory.InitializeBrowser(browser);
-            this.Pages = new PageBase(IWebDriver); 
+            this.WebDriver = BrowserFactory.InitializeBrowser(browser);
+            this.Pages = new PageBase(WebDriver); 
         }
 
         [TearDown]
         public void CloseBrowser() {
-            BrowserFactory.CloseBrowser(IWebDriver);
+            BrowserFactory.CloseBrowser(WebDriver);
         }
     }
 }
