@@ -13,7 +13,7 @@ namespace Pages {
         public HomePage(IWebDriver iWebDriver) : base(iWebDriver) {}
 
         internal HomePage OpenHomePageUrl(string url) {
-            SeleniumActions.OpenURL(url);
+            SeleniumActions.OpenUrl(url);
             return this;
        }
 

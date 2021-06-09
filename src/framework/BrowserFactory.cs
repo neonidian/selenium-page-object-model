@@ -17,8 +17,7 @@ namespace Framework {
                     break;
                 }
                 default: {
-                    Console.WriteLine("Browser value specified - '" + browser + "' does not match the supported browsers in this project");
-                    break;
+                    throw new Exception($"Browser value specified - '{browser}' does not match the supported browsers in this project");
                 }
             }
             IWebDriver.Manage().Window.Maximize(); 

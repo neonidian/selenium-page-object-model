@@ -6,22 +6,21 @@ namespace Framework {
     using NUnit.Framework;
     using System;
     public class SeleniumActions {
+        readonly IWebDriver _iWebDriver;
+        WebDriverWait _webDriverWait;
+        Actions _actions;
 
-        IWebDriver iWebDriver;
-        WebDriverWait webDriverWait;
-        Actions actions;
-
-        const Int32 explicitTimeOutInSeconds = 15;
-        const Int32 implicitTimeOutInSeconds = 5;
-        const Int32 pageLoadTimeOutInSeconds = 10;
+        private const int ExplicitTimeOutInSeconds = 15;
+        private const int ImplicitTimeOutInSeconds = 5;
+        private const int PageLoadTimeOutInSeconds = 10;
         public SeleniumActions(IWebDriver iWebDriver){
-            this.iWebDriver = iWebDriver;
-            iWebDriver.Manage().Timeouts().PageLoad.Add(TimeSpan.FromSeconds(pageLoadTimeOutInSeconds));
-            iWebDriver.Manage().Timeouts().ImplicitWait.Add(TimeSpan.FromSeconds(implicitTimeOutInSeconds));
+            _iWebDriver = iWebDriver;
+            iWebDriver.Manage().Timeouts().PageLoad.Add(TimeSpan.FromSeconds(PageLoadTimeOutInSeconds));
+            iWebDriver.Manage().Timeouts().ImplicitWait.Add(TimeSpan.FromSeconds(ImplicitTimeOutInSeconds));
         }
-        public SeleniumActions OpenURL(String URL){
+        public SeleniumActions OpenUrl(String url){
             try {
-                iWebDriver.Navigate().GoToUrl(URL);                
+                _iWebDriver.Navigate().GoToUrl(url);                
             }
             catch(WebDriverException webDriverException){
                 Fail(webDriverException.Message);
@@ -32,8 +31,8 @@ namespace Framework {
         public SeleniumActions HoverOnElement(LocatorObject locatorObject){
             try {
                 WaitForElementToBeDisplayed(locatorObject);
-                actions = new Actions(iWebDriver);
-                actions.MoveToElement(iWebDriver.FindElement(locatorObject.LocatorValue)).Perform();
+                _actions = new Actions(_iWebDriver);
+                _actions.MoveToElement(_iWebDriver.FindElement(locatorObject.LocatorValue)).Perform();
             }
             catch(WebDriverException webDriverException){
                 Fail(webDriverException.Message);
@@ -44,8 +43,8 @@ namespace Framework {
         public SeleniumActions HoverOnElementAndEnterText(LocatorObject locatorObject, String text){
             try {
                 WaitForElementToBeDisplayed(locatorObject);
-                actions = new Actions(iWebDriver);
-                actions.MoveToElement(iWebDriver.FindElement(locatorObject.LocatorValue))
+                _actions = new Actions(_iWebDriver);
+                _actions.MoveToElement(_iWebDriver.FindElement(locatorObject.LocatorValue))
                         .SendKeys(text)
                         .SendKeys(Keys.Enter)
                         .Perform();
@@ -59,7 +58,7 @@ namespace Framework {
         public SeleniumActions Click(LocatorObject locatorObject){
             try {
                 WaitForElementToBeDisplayed(locatorObject);
-                iWebDriver.FindElement(locatorObject.LocatorValue).Click();
+                _iWebDriver.FindElement(locatorObject.LocatorValue).Click();
             }
             catch(WebDriverException webDriverException){
                 Fail(webDriverException.Message);
@@ -70,8 +69,8 @@ namespace Framework {
         public SeleniumActions EntTextInTextBox(LocatorObject locatorObject, String text){
             try {
                 WaitForElementToBeDisplayed(locatorObject);
-                actions = new Actions(iWebDriver);
-                actions.MoveToElement(iWebDriver.FindElement(locatorObject.LocatorValue)).SendKeys(text).Perform();
+                _actions = new Actions(_iWebDriver);
+                _actions.MoveToElement(_iWebDriver.FindElement(locatorObject.LocatorValue)).SendKeys(text).Perform();
             }
             catch(WebDriverException webDriverException){
                 Fail(webDriverException.Message);
@@ -79,10 +78,10 @@ namespace Framework {
             return this;
         }
 
-        SeleniumActions WaitForElementToBeDisplayed(LocatorObject locatorObject){
+        public SeleniumActions WaitForElementToBeDisplayed(LocatorObject locatorObject){
             try {
-                webDriverWait = new WebDriverWait(iWebDriver, TimeSpan.FromSeconds(explicitTimeOutInSeconds));
-                webDriverWait.Until(iWebDriver => iWebDriver.FindElement(locatorObject.LocatorValue).Displayed);
+                _webDriverWait = new WebDriverWait(_iWebDriver, TimeSpan.FromSeconds(ExplicitTimeOutInSeconds));
+                _webDriverWait.Until(iWebDriver => iWebDriver.FindElement(locatorObject.LocatorValue).Displayed);
             }
             catch(WebDriverException webDriverException){
                 Fail("Timed out waiting for page object - " + locatorObject.LocatorDescription + ". Locator value - " + locatorObject.LocatorValue
@@ -94,7 +93,7 @@ namespace Framework {
         public SeleniumActions VerifyTextPresentInElement(LocatorObject locatorObject, String textToVerify){
             try {
                 WaitForElementToBeDisplayed(locatorObject);
-                String textFromElement = iWebDriver.FindElement(locatorObject.LocatorValue).Text;
+                String textFromElement = _iWebDriver.FindElement(locatorObject.LocatorValue).Text;
                 if(!textFromElement.Contains(textToVerify)){
                     Fail("Text from element - '" + textFromElement + "' does not match expected text - '" + textToVerify + "'");
                 }

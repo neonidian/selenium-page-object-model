@@ -15,10 +15,10 @@ namespace UITests {
 
         [SetUp]
         public void InitializeTestSetup() {
-            String browser = new ReadProperties().BrowserName;
-            this.BrowserFactory = new BrowserFactory();
-            this.WebDriver = BrowserFactory.InitializeBrowser(browser);
-            this.Pages = new PageBase(WebDriver); 
+            string browser = new ReadProperties().BrowserName;
+            BrowserFactory = new BrowserFactory();
+            WebDriver = BrowserFactory.InitializeBrowser(browser);
+            Pages = new PageBase(WebDriver); 
         }
 
         [TearDown]
