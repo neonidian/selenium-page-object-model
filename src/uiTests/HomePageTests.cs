@@ -3,7 +3,8 @@ namespace UITests
     using NUnit.Framework;
 
     [TestFixture]
-    public class HomePageTests : TestBase {
+    public class HomePageTests : TestBase 
+    {
 
         [TestCase]
         public void VerifyNavigationToProductsPage() => Pages

@@ -52,7 +52,6 @@ namespace Framework
                     LocatorValue = By.PartialLinkText(locator);
                     break;
             }
-
             return LocatorValue;
         }
 

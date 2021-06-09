@@ -1,16 +1,19 @@
-namespace Utilities {
-    using System;
+namespace Utilities 
+{
     using System.IO;
     using Microsoft.Extensions.Configuration;
     
-    public class ReadProperties {
-        public String BrowserName;
+    public class ReadProperties 
+    {
+        public string BrowserName;
         
-        public ReadProperties() {
+        public ReadProperties() 
+        {
             ReadAppConfigProperties();
         }
 
-        private void ReadAppConfigProperties() {
+        private void ReadAppConfigProperties() 
+        {
             string getCurrentPath = Directory.GetCurrentDirectory();
             var configurationBuilder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
