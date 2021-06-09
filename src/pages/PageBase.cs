@@ -5,6 +5,7 @@ namespace Pages {
     public class PageBase {
         private readonly IWebDriver _iWebDriver;
         protected readonly SeleniumActions SeleniumActions;
+        
         public PageBase(IWebDriver iWebDriver){
             _iWebDriver = iWebDriver;            
             SeleniumActions = new SeleniumActions(iWebDriver);

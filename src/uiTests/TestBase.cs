@@ -1,5 +1,4 @@
 namespace UITests {
-    using System;
     using NUnit.Framework;
     using Utilities;
     using Framework;

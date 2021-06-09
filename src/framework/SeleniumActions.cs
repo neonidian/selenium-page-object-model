@@ -5,6 +5,7 @@ namespace Framework {
     using OpenQA.Selenium.Support.UI;
     using NUnit.Framework;
     using System;
+    
     public class SeleniumActions {
         readonly IWebDriver _iWebDriver;
         WebDriverWait _webDriverWait;
@@ -13,11 +14,13 @@ namespace Framework {
         private const int ExplicitTimeOutInSeconds = 15;
         private const int ImplicitTimeOutInSeconds = 5;
         private const int PageLoadTimeOutInSeconds = 10;
+        
         public SeleniumActions(IWebDriver iWebDriver){
             _iWebDriver = iWebDriver;
             iWebDriver.Manage().Timeouts().PageLoad.Add(TimeSpan.FromSeconds(PageLoadTimeOutInSeconds));
             iWebDriver.Manage().Timeouts().ImplicitWait.Add(TimeSpan.FromSeconds(ImplicitTimeOutInSeconds));
         }
+        
         public SeleniumActions OpenUrl(String url){
             try {
                 _iWebDriver.Navigate().GoToUrl(url);                

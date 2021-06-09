@@ -1,7 +1,7 @@
-using Framework;
-using OpenQA.Selenium;
-
 namespace Pages {
+    using Framework;
+    using OpenQA.Selenium;
+    
     public class HomePage : PageBase {
 
         private const string PageName = "Home Page > ";

@@ -1,8 +1,7 @@
 namespace Pages {
-    using System;
-    using OpenQA.Selenium;
     using Framework;
-
+    using OpenQA.Selenium;
+    
     public class ProductsPage : PageBase {
 
         private const string PageName = "Products Page > ";

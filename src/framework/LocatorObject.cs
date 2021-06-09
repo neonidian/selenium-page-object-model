@@ -1,9 +1,10 @@
-namespace Framework {
+namespace Framework
+{
+    using System;
+    using OpenQA.Selenium;
 
-using System;
-using OpenQA.Selenium;
-
-    public class LocatorObject {
+    public class LocatorObject
+    {
         private readonly string _objectValue;
         public readonly string LocatorDescription;
         public const string ID = "ID";
@@ -17,15 +18,18 @@ using OpenQA.Selenium;
 
         public By LocatorValue { get; private set; }
 
-        public LocatorObject(String locator, String locatorDescription, String locatorType) {
+        public LocatorObject(String locator, String locatorDescription, String locatorType)
+        {
             this._objectValue = locator;
             this.LocatorValue = GetLocatorObject(_objectValue, locatorType);
             this.LocatorDescription = locatorDescription;
             _strLocatorType = locatorType;
         }
 
-        private By GetLocatorObject(String locator, String locatorType) {
-            switch (locatorType.ToUpper()) {
+        private By GetLocatorObject(String locator, String locatorType)
+        {
+            switch (locatorType.ToUpper())
+            {
                 case ID:
                     LocatorValue = By.Id(locator);
                     break;
@@ -48,16 +52,19 @@ using OpenQA.Selenium;
                     LocatorValue = By.PartialLinkText(locator);
                     break;
             }
+
             return LocatorValue;
         }
 
         public LocatorObject Replace(String replacementText) => new LocatorObject
-                    (this._objectValue.Replace("[*]", replacementText), this.LocatorDescription, this._strLocatorType);
+            (this._objectValue.Replace("[*]", replacementText), this.LocatorDescription, this._strLocatorType);
 
-        public LocatorObject Replace(String textToBeReplaced, String replacementText) => new(this._objectValue.Replace(textToBeReplaced, replacementText),
-                    this.LocatorDescription, this._strLocatorType);
+        public LocatorObject Replace(String textToBeReplaced, String replacementText) =>
+            new(this._objectValue.Replace(textToBeReplaced, replacementText),
+                this.LocatorDescription, this._strLocatorType);
 
-        public LocatorObject Replace(int replacementNumber) => new LocatorObject(this._objectValue.Replace("[*]", Convert.ToString(replacementNumber)),
-                    this.LocatorDescription, this._strLocatorType);
+        public LocatorObject Replace(int replacementNumber) => new LocatorObject(
+            this._objectValue.Replace("[*]", Convert.ToString(replacementNumber)),
+            this.LocatorDescription, this._strLocatorType);
     }
 }

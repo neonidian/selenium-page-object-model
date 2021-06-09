@@ -1,6 +1,7 @@
 namespace Framework
 {
     using OpenQA.Selenium.Firefox;
+    
     public class BrowserOptions {
         public FirefoxDriverService FirefoxDriverService
         {

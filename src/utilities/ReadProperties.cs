@@ -2,8 +2,10 @@ namespace Utilities {
     using System;
     using System.IO;
     using Microsoft.Extensions.Configuration;
+    
     public class ReadProperties {
         public String BrowserName;
+        
         public ReadProperties() {
             ReadAppConfigProperties();
         }
