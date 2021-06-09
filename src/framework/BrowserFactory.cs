@@ -1,22 +1,30 @@
-namespace Framework {
+namespace Framework 
+{
     using System;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Firefox;
 
-    public class BrowserFactory{
+    public class BrowserFactory
+    {
         private const string Firefox = "firefox";
         IWebDriver _iWebDriver;
 
-        private IWebDriver IWebDriver { get => _iWebDriver; set => _iWebDriver = value; }
+        private IWebDriver IWebDriver
+        {
+            get => _iWebDriver; set => _iWebDriver = value; 
+        }
 
         public IWebDriver InitializeBrowser(string browser)
         {
-            switch (browser) {
-                case Firefox: {
+            switch (browser) 
+            {
+                case Firefox: 
+                {
                     IWebDriver = new FirefoxDriver(new BrowserOptions().FirefoxDriverService, new BrowserOptions().FirefoxOptions);
                     break;
                 }
-                default: {
+                default: 
+                {
                     throw new Exception($"Browser value specified - '{browser}' does not match the supported browsers in this project");
                 }
             }

@@ -1,11 +1,13 @@
-namespace UITests {
+namespace UITests 
+{
     using NUnit.Framework;
     using Utilities;
     using Framework;
     using OpenQA.Selenium;
     using Pages;
 
-    public class TestBase {
+    public class TestBase 
+    {
         private IWebDriver WebDriver
         {
             get; set; 

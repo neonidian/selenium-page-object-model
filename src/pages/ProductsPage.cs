@@ -1,9 +1,10 @@
-namespace Pages {
+namespace Pages 
+{
     using Framework;
     using OpenQA.Selenium;
     
-    public class ProductsPage : PageBase {
-
+    public class ProductsPage : PageBase 
+    {
         private const string PageName = "Products Page > ";
         private readonly LocatorObject _productPageHeadingLbl = new LocatorObject("h1.bigText", PageName + "Products page heading label", LocatorObject.CSS);
 

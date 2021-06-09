@@ -16,7 +16,10 @@ namespace Framework
         public const string NAME = "NAME";
         private readonly string _strLocatorType;
 
-        public By LocatorValue { get; private set; }
+        public By LocatorValue
+        {
+            get; private set; 
+        }
 
         public LocatorObject(String locator, String locatorDescription, String locatorType)
         {

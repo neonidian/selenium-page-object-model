@@ -1,8 +1,10 @@
-namespace Pages {
+namespace Pages 
+{
     using Framework;
     using OpenQA.Selenium;
 
-    public class PageBase {
+    public class PageBase 
+    {
         private readonly IWebDriver _iWebDriver;
         protected readonly SeleniumActions SeleniumActions;
         
